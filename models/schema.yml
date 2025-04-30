@@ -1,0 +1,7 @@
+version: 2
+
+sources:
+  - name: raw_data      # This is a logical name (can be anything)
+    schema: public      # This MUST match the schema in PostgreSQL
+    tables:
+      - name: customers  
