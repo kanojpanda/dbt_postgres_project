@@ -1,7 +1,27 @@
 version: 2
 
 sources:
-  - name: raw_data      # This is a logical name (can be anything)
-    schema: public      # This MUST match the schema in PostgreSQL
+  - name: raw_data      # This is a logical name used in `source()`
+    schema: public      # This MUST match your PostgreSQL schema
     tables:
-      - name: customers  
+      - name: customers
+        description: Customer master data
+        columns:
+          - name: id
+            description: Primary key
+
+      - name: orders
+        description: Orders placed by customers
+        columns:
+          - name: id
+            description: Order ID
+          - name: customer_id
+            description: Foreign key to customers
+
+      - name: payments
+        description: Payment info for orders
+        columns:
+          - name: id
+            description: Payment ID
+          - name: order_id
+            description: Foreign key to orders
